@@ -102,11 +102,9 @@ class SendByScan extends Component {
           this.props.returnToState(returnState)
           console.log("return state",returnState)
         }else{
-          this.props.changeView('reader')
-          setTimeout(()=>{
-            //maybe they just scanned an address?
-            window.location = "/"+dataAfterColon
-          },100)
+          // Parse scanned data and update state without page reload
+          let returnState = this.props.parseAndCleanPath(dataAfterColon)
+          this.props.returnToState(returnState)
         }
       }
     }
