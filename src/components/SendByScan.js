@@ -105,6 +105,7 @@ class SendByScan extends Component {
           // Parse scanned data and update state without page reload
           let returnState = this.props.parseAndCleanPath(dataAfterColon)
           this.props.returnToState(returnState)
+          this.props.changeView('send_to_address')
         }
       }
     }
